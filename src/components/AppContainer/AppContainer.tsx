@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { MuiThemeProvider, Paper } from '@material-ui/core';
 import {
   TypedUseSelectorHook,
@@ -7,6 +7,7 @@ import {
 
 import { IThemeState } from '../../store/ducks/theme/types';
 import { materialTheme } from '../../styles';
+import { Navbar } from '..';
 import * as S from './styles';
 
 const AppContainer = ({ children }: { children?: React.ReactNode }) => {
@@ -17,7 +18,12 @@ const AppContainer = ({ children }: { children?: React.ReactNode }) => {
 
   return (
     <MuiThemeProvider theme={materialTheme[theme]}>
-      <S.Container component={Paper}>{children}</S.Container>
+      <S.Container component={Paper}>
+        <Fragment>
+          <Navbar />
+          {children}
+        </Fragment>
+      </S.Container>
     </MuiThemeProvider>
   );
 };

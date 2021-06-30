@@ -1,3 +1,4 @@
 import { AppContainer } from './AppContainer';
+import { Navbar } from './Navbar';
 
-export { AppContainer };
+export { AppContainer, Navbar };
