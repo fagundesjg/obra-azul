@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, Fragment } from 'react';
 import { Button, Divider, Grid, Typography } from '@material-ui/core';
 import {
   TypedUseSelectorHook,
@@ -28,34 +28,39 @@ const Cart = () => {
       <Grid container spacing={2}>
         <Grid item xs={12}>
           <Typography variant="h5" color="primary">
-            Seu carrinho
+            {cartProducts.length > 0
+              ? 'Seu carrinho'
+              : 'Seu carrinho está vazio.'}
           </Typography>
         </Grid>
       </Grid>
-      {cartProducts.map((product, index) => (
-        <Grid item xs={12} key={index}>
-          <CartItem {...product} />
-        </Grid>
-      ))}
-
-      <Grid item xs={12}>
-        <S.TotalContainer>
-          <Grid container spacing={2} justify="flex-end">
-            <Grid item xs={12} container justify="space-between">
-              <Typography>Total</Typography>
-              <Typography variant="h5">{`R$ ${total}`}</Typography>
+      {cartProducts.length > 0 && (
+        <Fragment>
+          {cartProducts.map((product, index) => (
+            <Grid item xs={12} key={index}>
+              <CartItem {...product} />
             </Grid>
-            <Grid item xs={12}>
-              <Divider />
-            </Grid>
-            <Grid item>
-              <Button variant="contained" color="primary">
-                Finalizar compra
-              </Button>
-            </Grid>
+          ))}
+          <Grid item xs={12}>
+            <S.TotalContainer>
+              <Grid container spacing={2} justify="flex-end">
+                <Grid item xs={12} container justify="space-between">
+                  <Typography>Total</Typography>
+                  <Typography variant="h5">{`R$ ${total}`}</Typography>
+                </Grid>
+                <Grid item xs={12}>
+                  <Divider />
+                </Grid>
+                <Grid item>
+                  <Button variant="contained" color="primary">
+                    Finalizar compra
+                  </Button>
+                </Grid>
+              </Grid>
+            </S.TotalContainer>
           </Grid>
-        </S.TotalContainer>
-      </Grid>
+        </Fragment>
+      )}
     </S.Container>
   );
 };
