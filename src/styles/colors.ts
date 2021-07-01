@@ -7,6 +7,7 @@ const colors = {
   yellow: '#FFD610',
   darkGrey: '#555555',
   white: '#fff',
+  light: '#EBEEF8',
 };
 
 export { colors };

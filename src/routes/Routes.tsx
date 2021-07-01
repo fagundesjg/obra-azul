@@ -1,17 +1,16 @@
 import React, { Fragment } from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 
-import { Home } from '../pages';
+import { Cart, Home } from '../pages';
 
 const Routes = () => {
   return (
-    <BrowserRouter>
-      <Fragment>
-        <Switch>
-          <Route exact path="/" component={Home} />
-        </Switch>
-      </Fragment>
-    </BrowserRouter>
+    <Fragment>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/cart" component={Cart} />
+      </Switch>
+    </Fragment>
   );
 };
 

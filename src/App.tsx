@@ -1,6 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { CssBaseline, StylesProvider } from '@material-ui/core';
+import { BrowserRouter } from 'react-router-dom';
 
 import { GlobalStyle } from './styles/GlobalStyles';
 import './configs/ReactotronConfig';
@@ -20,9 +21,11 @@ const App = () => {
       <StylesProvider injectFirst>
         <CssBaseline />
         <GlobalStyle />
-        <AppContainer>
-          <Routes />
-        </AppContainer>
+        <BrowserRouter>
+          <AppContainer>
+            <Routes />
+          </AppContainer>
+        </BrowserRouter>
       </StylesProvider>
     </Provider>
   );
